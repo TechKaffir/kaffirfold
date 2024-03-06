@@ -10,23 +10,23 @@ This lightweight, easy-to-use framework offers a fast and efficient way to devel
 <strong>Command Line Dev:</strong> CLI functionality for even more seamless development
 <strong>Fast and efficient:</strong> With a focus on performance and efficiency, you can be sure that your applications will run smoothly and quickly.
 
-## Getting Started ## <br>
+## Getting Started ## 
 *** Using Github ***
 To get started, simply clone the repository and follow the installation instructions. Once installed, you can begin building your application using the framework's features.
 
 *** Using Composer ***
 With Composer installed in your local machine, just copy the following command line and paste it in the terminal of your Project Directory
 
-composer create-project jongi/kaffirfold-php [your-project-name]
+## composer create-project jongi/kaffirfold-php [your-project-name] ##
 
-Documentation
+## Documentation ##
 For a quick easy guide, kindly get the documentation here
 
-Contributing
+## Contributing ##
 If you would like to contribute to this project, please feel free to submit a pull request or open an issue on GitHub. We welcome all contributions and are always looking for ways to improve the framework.
 
-Support
+## Support ##
 If you need help or have any questions, please don't hesitate to reach out. You can either open an issue on GitHub or send an email to jongim@jongimbodla.africa. We are always happy to help and will do our best to respond in a timely manner.
 
-License
+## License ##
 Kaffirfold Framework is licensed under GPL-3.0-or-later [https://](https://spdx.org/licenses/GPL-3.0-or-later.html)https://spdx.org/licenses/GPL-3.0-or-later.html
