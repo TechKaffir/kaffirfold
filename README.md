@@ -3,14 +3,14 @@ With a user-friendly interface and intuitive design patterns, Kaffir Fold Framew
 This lightweight, easy-to-use framework offers a fast and efficient way to develop and maintain your PHP applications with minimal hassle. Whether you're a seasoned developer or just starting out, this framework has everything you need to bring your projects to life.
 
 ## Features ##
-MVC Architecture: The framework follows the Model-View-Controller (MVC) pattern, making it easier to manage and maintain your application code.
-Easy to use: This framework is designed to be simple and straightforward, allowing you to get started quickly and easily.
-Lightweight: The framework is built to be lightweight, reducing the overhead and bloat often found in other frameworks.
-Fusion: This framework ships with an already configured Dashaboard, on the fly.
-Command Line Dev: CLI functionality for even more seamless development
-Fast and efficient: With a focus on performance and efficiency, you can be sure that your applications will run smoothly and quickly.
+<strong>MVC Architecture:</strong> The framework follows the Model-View-Controller (MVC) pattern, making it easier to manage and maintain your application code.
+<strong>Easy to use:</strong> This framework is designed to be simple and straightforward, allowing you to get started quickly and easily.
+<strong>Lightweight:</strong> The framework is built to be lightweight, reducing the overhead and bloat often found in other frameworks.
+<strong>Fusion:</strong> This framework ships with an already configured Dashaboard, on the fly.
+<strong>Command Line Dev:</strong> CLI functionality for even more seamless development
+<strong>Fast and efficient:</strong> With a focus on performance and efficiency, you can be sure that your applications will run smoothly and quickly.
 
-Getting Started
+## Getting Started ## <br>
 *** Using Github ***
 To get started, simply clone the repository and follow the installation instructions. Once installed, you can begin building your application using the framework's features.
 
