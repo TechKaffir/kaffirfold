@@ -2,7 +2,7 @@
     "name": "jongi/kaffirfold-framework",
     "description": "With a user-friendly interface and intuitive design patterns, Kaffir Fold Framework takes you from the absolute beginning of your project to about 40% completion in no time. Our framework is not only easy to use but also highly customizable to fit the needs of your unique project. Get started with Kaffir Fold Framework today and watch your App Development process become faster and more efficient than ever before.",
     "type": "project",
-    "license": "GPL-3.0 license",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Jongi-TheTechKaffir",
