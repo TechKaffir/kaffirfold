@@ -17,7 +17,7 @@ To get started, simply clone the repository and follow the installation instruct
 *** Using Composer ***
 With Composer installed in your local machine, just copy the following command line and paste it in the terminal of your Project Directory
 
-### composer create-project jongi/kaffirfold-php [your-project-name] ###
+### composer create-project jongi/kaffirfold [your-project-name] ###
 
 ## Documentation ##
 For a quick easy guide, kindly get the documentation here
