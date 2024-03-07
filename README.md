@@ -2,25 +2,58 @@
 With a user-friendly interface and intuitive design patterns, Kaffir Fold Framework takes you from the absolute beginning of your project to about 70% completion in no time. Our framework is not only easy to use but also highly customizable to fit the needs of your unique project.
 This lightweight, easy-to-use framework offers a fast and efficient way to develop and maintain your PHP applications with minimal hassle. Whether you're a seasoned developer or just starting out, this framework has everything you need to bring your projects to life.
 
-## Features ##
-<strong>MVC Architecture:</strong> The framework follows the Model-View-Controller (MVC) pattern, making it easier to manage and maintain your application code.
-<strong>Easy to use:</strong> This framework is designed to be simple and straightforward, allowing you to get started quickly and easily.
-<strong>Lightweight:</strong> The framework is built to be lightweight, reducing the overhead and bloat often found in other frameworks.
-<strong>Fusion:</strong> This framework ships with an already configured Dashaboard, on the fly.
-<strong>Command Line Dev:</strong> CLI functionality for even more seamless development
-<strong>Fast and efficient:</strong> With a focus on performance and efficiency, you can be sure that your applications will run smoothly and quickly.
+## Features
+- **MVC Architecture**: The framework follows the Model-View-Controller (MVC) pattern, making it easier to manage and maintain your application code.
+- **Easy to use**: This framework is designed to be simple and straightforward, allowing you to get started quickly and easily.
+- **Lightweight**: The framework is built to be lightweight, reducing the overhead and bloat often found in other frameworks.
+- **CRM state of readyness**: This framework ships with an already configured modules, on the fly(Dashboard).
+- **Command Line Dev**: CLI functionality for even more seamless development.
+- **In-App Messaging and Blog**: Seamlessly engage with clients and the wider community on issues of interest through in-app messaging and blogging features.
+- **All-in-One Application**: Combines a Business Management System and Content Management System with a front-end website, all in a single platform.
 
-## Getting Started ## 
-*** Using Github ***
-To get started, simply clone the repository and follow the installation instructions. Once installed, you can begin building your application using the framework's features.
+### Development Made Easy
 
-*** Using Composer ***
-With Composer installed in your local machine, just copy the following command line and paste it in the terminal of your Project Directory
+- **CLI Development**: Streamline development tasks with CLI commands for database operations, model and controller creation, and more.
 
-### composer create-project jongi/kaffirfold [your-project-name] ###
+## Getting Started - Installation
+
+1. **Using Github**: To get started, simply clone the repository and follow the installation instructions. Once installed, you can begin building your application using the framework's features, OR
+
+2. **Using Composer**: Install project using Composer.
+    ```bash
+    composer create-project jongi/kaffirfold [your-project-name]
+    ```
+
+   - **Database Setup**: Create a new database.
+    ```bash
+    php jongi db:create [dbname]
+    ```
+
+   - **Configure the database name**: Update the database name in `app/core/config.php` with the recently created database.
+
+   - **Migrations**: Configure and execute migrations to set up the database tables.
+    ```bash
+    php jongi migrate:all
+    ```
+
+Now your application is ready to go! Benefit from essential features such as user authentication, validation, and session management right out of the box.
+
+- **Dark/Light Mode**: Customize the user interface with dark and light mode options.
+- **Google Translate Integration**: Enhance accessibility with front-end language translation capabilities.
+- **Company Details and Social Links**: Easily manage company information and social media links within the application.
+
+## License
+
+This project is licensed under the GPL-3.0-or-later license.
+
+## Credits
+
+This project utilizes UI templates from [https://](https://bootstrapmade.com)Bootstrapmade and with some customised KaffirFold CSS & JS for both backend and frontend interfaces.
+
+In summary, the Jongi Brands Tech Solutions' Kaffirfold MVC framework offers a unique blend of functionality, combining the flexibility of CMS (Content Management System) with the power of a PHP Web Applications Framework. Experience streamlined development like never before!
 
 ## Documentation ##
-For a quick easy guide, kindly get the documentation here
+For a quick easy guide, kindly get the documentation [https://](https://#)here
 
 ## Contributing ##
 If you would like to contribute to this project, please feel free to submit a pull request or open an issue on GitHub. We welcome all contributions and are always looking for ways to improve the framework.
