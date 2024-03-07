@@ -50,7 +50,9 @@ This project is licensed under the GPL-3.0-or-later license.
 
 This project utilizes UI templates from [Bootstrapmade](https://bootstrapmade.com/) and with some customised KaffirFold CSS & JS for both backend and frontend interfaces.
 
-In summary, the Jongi Brands Tech Solutions' Kaffirfold MVC framework offers a unique blend of functionality, combining the flexibility of CMS (Content Management System) with the power of a PHP Web Applications Framework. Experience streamlined development like never before!
+In summary, the  Kaffirfold MVC framework offers a unique blend of functionality, combining the flexibility of CMS (Content Management System) with the power of a PHP Web Applications Framework. Experience streamlined development like never before!
+Powered by [Jongi Brands Tech Solutions](https://techsolutions.jongibrandz.co.za)
+Developed by [Jongi - TheTechKaffir](https://jongimbodla.africa)
 
 ## Documentation ##
 For a quick easy guide, kindly get the documentation - [here](#)
