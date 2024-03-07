@@ -53,7 +53,7 @@ This project utilizes UI templates from [https://](https://bootstrapmade.com)Boo
 In summary, the Jongi Brands Tech Solutions' Kaffirfold MVC framework offers a unique blend of functionality, combining the flexibility of CMS (Content Management System) with the power of a PHP Web Applications Framework. Experience streamlined development like never before!
 
 ## Documentation ##
-For a quick easy guide, kindly get the documentation [https://](https://#)here
+For a quick easy guide, kindly get the documentation [https://(https://#)here]
 
 ## Contributing ##
 If you would like to contribute to this project, please feel free to submit a pull request or open an issue on GitHub. We welcome all contributions and are always looking for ways to improve the framework.
