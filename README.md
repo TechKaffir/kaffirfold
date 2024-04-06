@@ -55,7 +55,7 @@ Powered by [Jongi Brands Tech Solutions](https://techsolutions.jongibrandz.co.za
 Developed by [Jongi - TheTechKaffir](https://jongimbodla.africa)
 
 ## Documentation ##
-For a quick easy guide, kindly get the documentation - [here](#)
+For a quick easy guide, kindly get the documentation - [here](https://kaffirfold.jongibrandz.co.za/home/documentation)
 ## Contributing ##
 If you would like to contribute to this project, please feel free to submit a pull request or open an issue on GitHub. We welcome all contributions and are always looking for ways to improve the framework.
 
