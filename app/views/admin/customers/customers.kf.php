@@ -30,106 +30,108 @@
                                     </div>
                                 <?php endif; ?>
                                 <?= Util::displayFlash('tenant_register_error', 'danger') ?>
-
+                                <!--ROW 1-->
                                 <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12 text-center">
+                                        <label> Profile Image <br>
+                                            <img src="<?= get_image('', 'user') ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover;cursor:pointer">
+                                            <input onchange="display_image(this.files[0], event)" type="file" name="<?= esc('image') ?>" class="d-none">
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--ROW 2-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="firstname">First Name</label>
                                         <input type="text" name="<?= esc('firstname') ?>" value="<?= old_value('firstname') ?>" class="form-control mb-1" id="firstname">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="surname">Surname</label>
                                         <input type="text" name="<?= esc('surname') ?>" value="<?= old_value('surname') ?>" class="form-control mb-1" id="surname">
                                     </div>
-                                </div>
-                                <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="username">Username</label>
                                         <input type="text" name="<?= esc('username') ?>" value="<?= old_value('username') ?>" class="form-control mb-1" id="username">
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                                <!--ROW 3-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="email">email</label>
                                         <input type="email" name="<?= esc('email') ?>" value="<?= old_value('email') ?>" class="form-control mb-1" id="email">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="password">Password</label>
                                         <input type="password" name="<?= esc('password') ?>" value="<?= old_value('password') ?>" class="form-control mb-1" id="password">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_role">User Role</label>
                                         <input type="text" name="<?= esc('user_role') ?>" value="Customer" class="form-control mb-1" id="user_role" readonly>
 
                                     </div>
                                 </div>
+                                <!--ROW 4-->
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_id">User ID</label>
                                         <input type="text" name="<?= esc('user_id') ?>" value="<?= rand(10001, 99099) ?>" class="form-control mb-1" id="user_id" readonly>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="phone">Phone</label>
                                         <input type="text" name="<?= esc('phone') ?>" value="<?= old_value('phone') ?>" class="form-control mb-1" id="phone">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="gender">Gender</label>
                                         <select name="<?= esc('gender') ?>" class="form-control mb-1" id="gender">
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="image"> Profile Image
-                                            <input onchange="display_image(this.files[0], event);change_image(this.files[0], event)" type="file" value="<?= old_value('image') ?>" class="form-control" name="<?= esc('image') ?>">
-                                        </label>
-                                    </div>
                                 </div>
+                                <!--ROW 5-->
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="domicilium">Domicilium (Home Address)</label>
                                         <input type="text" name="<?= esc('domicilium') ?>" value="<?= old_value('domicilium') ?>" class="form-control mb-1" id="domicilium">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="id_number">ID Number (Govt)</label>
                                         <input type="text" name="<?= esc('id_number') ?>" value="<?= old_value('id_number') ?>" class="form-control mb-1" id="id_number">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
 
-                                    <div class="col-lg-12">
-                                        <label for="emerge_cont_person">Emergency Contact Person (FullName)</label>
+                                    <div class="col-lg-4">
+                                        <label for="emerge_cont_person">Emergency Contact(FullName)</label>
                                         <input type="text" name="<?= esc('emerge_cont_person') ?>" value="<?= old_value('emerge_cont_person') ?>" class="form-control mb-1" id="emerge_cont_person">
                                     </div>
                                 </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                <!--ROW 6-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="monthly_net">Monthly Net (R)</label>
                                         <input type="number" name="<?= esc('monthly_net') ?>" value="<?= old_value('monthly_net') ?>" class="form-control mb-1" id="monthly_net">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="emerge_cont_phone">Emergency Contact Phone</label>
                                         <input type="text" name="<?= esc('emerge_cont_phone') ?>" value="<?= old_value('emerge_cont_phone') ?>" class="form-control mb-1" id="emerge_cont_phone">
                                     </div>
 
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+
+                                    <div class="col-lg-4">
                                         <label for="employer">Employer</label>
                                         <input type="text" name="<?= esc('employer') ?>" value="<?= old_value('employer') ?>" class="form-control mb-1" id="employer">
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="work_cont_name">Contact Person</label>
-                                        <input type="text" name="<?= esc('work_cont_name') ?>" value="<?= old_value('work_cont_name') ?>" class="form-control mb-1" id="work_cont_name">
-                                    </div>
                                 </div>
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <label for="work_cont_name">Work Contact Person</label>
+                                        <input type="text" name="<?= esc('work_cont_name') ?>" value="<?= old_value('work_cont_name') ?>" class="form-control mb-1" id="work_cont_name">
+                                    </div>
+                                    <div class="col-lg-4">
                                         <label for="work_cont_phone">Contact Phone(Work)</label>
                                         <input type="text" name="<?= esc('work_cont_phone') ?>" value="<?= old_value('work_cont_phone') ?>" class="form-control mb-1" id="work_cont_phone">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="work_service">Work Service (in years)</label>
                                         <input type="text" name="<?= esc('work_service') ?>" value="<?= old_value('work_service') ?>" class="form-control mb-1" id="work_service">
                                     </div>
@@ -162,49 +164,58 @@
                                     </div>
                                 <?php endif; ?>
 
+                                <!--ROW 1-->
                                 <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12 text-center">
+                                        <label> Profile Image <br>
+                                            <img src="<?= old_value(get_image($row->image), get_image($row->image, 'user'))  ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover;cursor:pointer">
+                                            <input onchange="display_image(this.files[0], event)" type="file" name="<?= esc('image') ?>" class="d-none"> <br> <span style="font-size: 0.6rem;" class="text-danger fw-bold">***You will still need to upload an image even if its the same***</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--ROW 2-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="firstname">First Name</label>
                                         <input type="text" name="<?= esc('firstname') ?>" value="<?= old_value('firstname', $row->firstname) ?>" class="form-control mb-1" id="firstname">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="surname">Surname</label>
                                         <input type="text" name="<?= esc('surname') ?>" value="<?= old_value('surname', $row->surname) ?>" class="form-control mb-1" id="surname">
                                     </div>
-                                </div>
-                                <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="username">Username</label>
                                         <input type="text" name="<?= esc('username') ?>" value="<?= old_value('username', $row->username) ?>" class="form-control mb-1" id="username">
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                                <!--ROW 3-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="email">email</label>
                                         <input type="email" name="<?= esc('email') ?>" value="<?= old_value('email', $row->email) ?>" class="form-control mb-1" id="email">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="password">Password</label>
                                         <input type="password" name="<?= esc('password') ?>" value="<?= old_value('password') ?>" class="form-control mb-1" id="password">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_role">User Role</label>
                                         <input type="text" name="<?= esc('user_role') ?>" value="customer" class="form-control mb-1" id="user_role" readonly>
 
                                     </div>
                                 </div>
+                                <!--ROW 4-->
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_id">User ID</label>
                                         <input type="text" name="<?= esc('user_id') ?>" value="<?= $row->user_id ?>" class="form-control mb-1" id="user_id" readonly>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="phone">Phone</label>
                                         <input type="text" name="<?= esc('phone') ?>" value="<?= old_value('phone', $row->phone) ?>" class="form-control mb-1" id="phone">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="gender">Gender</label>
                                         <?php $selGender = old_value('gender', $row->gender) ?>
                                         <select name="<?= esc('gender') ?>" class="form-control mb-1" id="gender">
@@ -212,83 +223,56 @@
                                             <option value="Female" <?= $selGender == 'Female' ? 'selected' : '' ?>>Female</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="image"> Profile Image
-                                            <input onchange="display_image(this.files[0], event);change_image(this.files[0], event)" type="file" value="<?= old_value('image', $row->image) ?>" class="form-control" name="<?= esc('image') ?>">
-                                        </label>
-                                    </div>
                                 </div>
+                                <!--ROW 5-->
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="domicilium">Domicilium (Home Address)</label>
                                         <input type="text" name="<?= esc('domicilium') ?>" value="<?= old_value('domicilium', $row->domicilium) ?>" class="form-control mb-1" id="domicilium">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="id_number">ID Number (Govt)</label>
                                         <input type="text" name="<?= esc('id_number') ?>" value="<?= old_value('id_number', $row->id_number) ?>" class="form-control mb-1" id="id_number">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="monthly_net">Monthly Net (R)</label>
                                         <input type="number" name="<?= esc('monthly_net') ?>" value="<?= old_value('monthly_net', $row->monthly_net) ?>" class="form-control mb-1" id="monthly_net">
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                                <!--ROW 6-->
+                                <div class=" row form-row">
+                                    <div class="col-lg-4">
                                         <label for="emerge_cont_person">Emergency Contact Person (FullName)</label>
                                         <input type="text" name="<?= esc('emerge_cont_person') ?>" value="<?= old_value('emerge_cont_person', $row->emerge_cont_person) ?>" class="form-control mb-1" id="emerge_cont_person">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+
+                                    <div class="col-lg-4">
                                         <label for="emerge_cont_phone">Emergency Contact Phone</label>
                                         <input type="text" name="<?= esc('emerge_cont_phone') ?>" value="<?= old_value('emerge_cont_phone', $row->emerge_cont_phone) ?>" class="form-control mb-1" id="emerge_cont_phone">
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="num_occupants">Number of occupants(inc child)</label>
-                                        <input type="number" name="<?= esc('num_occupants') ?>" value="<?= old_value('num_occupants', $row->num_occupants) ?>" class="form-control mb-1" id="num_occupants">
-                                    </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="employer">Employer</label>
                                         <input type="text" name="<?= esc('employer') ?>" value="<?= old_value('employer', $row->employer) ?>" class="form-control mb-1" id="employer">
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                                <!--ROW 7-->
+                                <div class=" row form-row">
+                                    <div class="col-lg-4">
                                         <label for="work_cont_name">Contact Person</label>
                                         <input type="text" name="<?= esc('work_cont_name') ?>" value="<?= old_value('work_cont_name', $row->work_cont_name) ?>" class="form-control mb-1" id="work_cont_name">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="work_cont_phone">Contact Phone(Work)</label>
                                         <input type="text" name="<?= esc('work_cont_phone') ?>" value="<?= old_value('work_cont_phone', $row->work_cont_phone) ?>" class="form-control mb-1" id="work_cont_phone">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="work_service">Work Service (in years)</label>
                                         <input type="text" name="<?= esc('work_service') ?>" value="<?= old_value('work_service', $row->work_service) ?>" class="form-control mb-1" id="work_service">
                                     </div>
                                 </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
-                                        <label for="occup_date">Occupation Date</label>
-                                        <input type="date" name="<?= esc('occup_date') ?>" value="<?= old_value('occup_date', $row->occup_date) ?>" class="form-control mb-1" id="occup_date">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="unit">Unit Occupying</label>
-                                        <?php  ?>
-                                        <select name="<?= esc('unit') ?>" class="form-control mb-1" id="unit">
-                                            <option value="">--Select Unit--</option>
-                                            <?php if ($units) : foreach ($units as $uRow) : $selUnit = old_value('unit', $row->unit) ?>
-                                                    <option value="<?= $uRow->id ?>" <?= $selUnit == $uRow->id ? 'selected' : '' ?>><?= $uRow->name ?></option>
-                                            <?php endforeach;
-                                            endif ?>
-                                        </select>
-                                    </div>
-                                </div>
-
                                 <div class="form-row">
                                     <div class="d-grid gap-2 col-lg-12">
-                                        <button type="submit" class="btn btn-outline-<?= THEME_COLOR ?>">UPDATE customer DETAILS</button>
+                                        <button type="submit" class="btn btn-outline-<?= THEME_COLOR ?>">UPDATE CUSTOMER DETAILS</button>
                                         <a href="<?= ROOT ?>/admin/customers" class="btn btn-danger">CANCEL</a>
                                     </div>
                                 </div>
@@ -311,119 +295,107 @@
                                         <?= implode('<br>', $errors);  ?>
                                     </div>
                                 <?php endif; ?>
-
+                                <!--ROW 1-->
                                 <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12 text-center">
+                                        <label> Profile Image <br>
+                                            <img src="<?= old_value(get_image($row->image), get_image($row->image, 'user'))  ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover;">
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--ROW 2-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="firstname">First Name</label>
                                         <div class="form-control mb-1"><?= $row->firstname ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="surname">Surname</label>
                                         <div class="form-control mb-1"><?= $row->surname ?></div>
                                     </div>
-                                </div>
-                                <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="username">Username</label>
                                         <div class="form-control mb-1"><?= $row->username ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                                <!--ROW 3-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="email">email</label>
                                         <div class="form-control mb-1"><?= $row->email ?></div>
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="password">Password</label>
                                         <div class="form-control mb-1"><?= 'REDUCTED' ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_role">User Role</label>
                                         <div class="form-control mb-1"><?= $row->user_role ?></div>
 
                                     </div>
                                 </div>
+                                <!--ROW 4-->
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_id">User ID</label>
                                         <div class="form-control mb-1"><?= $row->user_id ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="phone">Phone</label>
                                         <div class="form-control mb-1"><?= $row->phone ?></div>
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="gender">Gender</label>
                                         <div class="form-control mb-1"><?= $row->gender ?></div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="image"> Profile Image
-                                            <div class="form-control mb-1"><?= $row->image ?></div>
-                                    </div>
                                 </div>
+                                <!--ROW 5-->
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="domicilium">Domicilium (Home Address)</label>
                                         <div class="form-control mb-1"><?= $row->domicilium ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="id_number">ID Number (Govt)</label>
                                         <div class="form-control mb-1"><?= $row->id_number ?></div>
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="monthly_net">Monthly Net (R)</label>
                                         <div class="form-control mb-1"><?= $row->monthly_net ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                                <!--ROW 6-->
+                                <div class=" row form-row">
+                                    <div class="col-lg-4">
                                         <label for="emerge_cont_person">Emergency Contact Person (FullName)</label>
                                         <div class="form-control mb-1"><?= $row->emerge_cont_person ?></div>
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="emerge_cont_phone">Emergency Contact Phone</label>
                                         <div class="form-control mb-1"><?= $row->emerge_cont_phone ?></div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="num_occupants">Number of occupants(inc child)</label>
-                                        <div class="form-control mb-1"><?= $row->num_occupants ?></div>
-                                    </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="employer">Employer</label>
                                         <div class="form-control mb-1"><?= $row->employer ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                               <!--ROW 7-->
+                                <div class=" row form-row">
+                                    <div class="col-lg-4">
                                         <label for="work_cont_name">Contact Person</label>
                                         <div class="form-control mb-1"><?= $row->work_cont_name ?></div>
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="work_cont_phone">Contact Phone(Work)</label>
                                         <div class="form-control mb-1"><?= $row->work_cont_phone ?></div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="work_service">Work Service (in years)</label>
                                         <div class="form-control mb-1"><?= $row->work_service ?></div>
                                     </div>
                                 </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
-                                        <label for="occup_date">Occupation Date</label>
-                                        <div class="form-control mb-1"><?= $row->occup_date ?></div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="unit">Unit Occupying</label>
-                                        <div class="form-control mb-1"><?= $row->unit ?></div>
-                                    </div>
-                                </div>
-
+                                
                                 <div class="form-row">
                                     <div class="d-grid gap-2 col-lg-12">
                                         <button type="submit" class="btn btn-outline-<?= THEME_COLOR ?>">DELETE CUSTOMER</button>
@@ -607,7 +579,7 @@
                                                                                         <thead>
                                                                                             <tr>
                                                                                                 <th scope="col">#</th>
-                                                                                                <th scope="col">Payment Date</th>                                                                                               
+                                                                                                <th scope="col">Payment Date</th>
                                                                                                 <th scope="col">Invoice</th>
                                                                                                 <th scope="col">Amount</th>
                                                                                                 <th scope="col">Type</th>
@@ -639,7 +611,7 @@
                                                                             </div>
 
                                                                         </div>
-                                                                        
+
                                                                         <div class="tab-pane fade show profile-overview" id="documents">
                                                                             <h5 class="card-title">Documents</h5>
                                                                             <div class="row">

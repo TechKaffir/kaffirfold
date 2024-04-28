@@ -33,32 +33,32 @@
                                 <?= Util::displayFlash('register_error', 'danger') ?>
                                 <?= Util::displayFlash('email_exists_error', 'danger') ?>
                                 <?= Util::displayFlash('username_exists_error', 'danger') ?>
+                                <!--ROW 1-->
                                 <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="firstname">First Name</label>
                                         <input type="text" name="<?= esc('firstname') ?>" value="<?= old_value('firstname') ?>" class="form-control mb-1" id="firstname">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="surname">Surname</label>
                                         <input type="text" name="<?= esc('surname') ?>" value="<?= old_value('surname') ?>" class="form-control mb-1" id="surname">
                                     </div>
-                                </div>
-                                <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="username">Username</label>
                                         <input type="text" name="<?= esc('username') ?>" value="<?= old_value('username') ?>" class="form-control mb-1" id="username">
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+                                <!--ROW 2-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="email">email</label>
                                         <input type="email" name="<?= esc('email') ?>" value="<?= old_value('email') ?>" class="form-control mb-1" id="email">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="password">Password</label>
                                         <input type="password" name="<?= esc('password') ?>" value="<?= old_value('password') ?>" class="form-control mb-1" id="password">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_role">User Role</label>
                                         <?php $selUserRole = old_value('user_role') ?>
                                         <select name="<?= esc('user_role') ?>" id="user_role" class="form-control mb-1">
@@ -66,32 +66,26 @@
                                             <option value="Admin" <?= $selUserRole == 'Admin' ? 'selected' : '' ?>>Admin</option>
                                             <option value="Landlord" <?= $selUserRole == 'Landlord' ? 'selected' : '' ?>>Landlord</option>
                                             <option value="Admin Clerk" <?= $selUserRole == 'Admin Clerk' ? 'selected' : '' ?>>Admin Clerk</option>
-                                            <option value="customer" <?= $selUserRole == 'customer' ? 'selected' : '' ?>>customer</option>
+                                            <option value="Customer" <?= $selUserRole == 'Customer' ? 'selected' : '' ?>>Customer</option>
                                         </select>
                                     </div>
                                 </div>
+                                <!--ROW 3-->
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_id">User ID</label>
                                         <input type="text" name="<?= esc('user_id') ?>" value="<?= rand(10001, 99099) ?>" class="form-control mb-1" id="user_id" readonly>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="phone">Phone</label>
                                         <input type="text" name="<?= esc('phone') ?>" value="<?= old_value('phone') ?>" class="form-control mb-1" id="phone">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="gender">Gender</label>
                                         <select name="<?= esc('gender') ?>" class="form-control mb-1" id="gender">
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="image"> Profile Image
-                                            <input onchange="display_image(this.files[0], event);change_image(this.files[0], event)" type="file" value="<?= old_value('image') ?>" class="form-control" name="<?= esc('image') ?>">
-                                        </label>
                                     </div>
                                 </div>
 
@@ -120,66 +114,73 @@
                                         <?= implode('<br>', $errors);  ?>
                                     </div>
                                 <?php endif; ?>
+                                <!--ROW 1-->
                                 <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12 text-center">
+                                        <label for="image"> Profile Image</label> <br>
+                                        <img src="<?= old_value(get_image($row->image), get_image($row->image, 'user'))  ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover;cursor:pointer">
+                                        <input onchange="display_image(this.files[0], event)" type="file" name="<?= esc('image') ?>" class="d-none"> 
+                                        
+                                        <br> <span style="font-size: 0.6rem;" class="text-danger fw-bold">***You will still need to upload an image even if its the same***</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--ROW 2-->
+                                <div class="row form-row">
+                                    <div class="col-lg-4">
                                         <label for="firstname">First Name</label>
                                         <input type="text" name="<?= esc('firstname') ?>" value="<?= old_value('firstname', $row->firstname) ?>" class="form-control mb-1" id="firstname">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="surname">Surname</label>
                                         <input type="text" name="<?= esc('surname') ?>" value="<?= old_value('surname', $row->surname) ?>" class="form-control mb-1" id="surname">
                                     </div>
-                                </div>
-                                <div class="row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="username">Username</label>
                                         <input type="text" name="<?= esc('username') ?>" value="<?= old_value('username', $row->username) ?>" class="form-control mb-1" id="username">
                                     </div>
-                                    <div class="col-lg-6">
+                                </div>
+
+
+                                <!--ROW 4-->
+                                <div class=" row form-row">
+                                    <div class="col-lg-4">
                                         <label for="email">email</label>
                                         <input type="email" name="<?= esc('email') ?>" value="<?= old_value('email', $row->email) ?>" class="form-control mb-1" id="email">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="password">Password</label>
                                         <input type="password" name="<?= esc('password') ?>" value="" class="form-control mb-1" id="password" placeholder="Leave Black to keep old password">
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_role">User Role</label>
                                         <?php $userRoleSel = $row->user_role ?>
-                                        <select name="<?= esc('user_role',$row->user_role) ?>" id="user_role" class="form-control mb-1">
+                                        <select name="<?= esc('user_role', $row->user_role) ?>" id="user_role" class="form-control mb-1">
                                             <option value="Select Role">--Select User Role--</option>
                                             <option value="Admin" <?= $userRoleSel == 'Admin' ? 'selected' : '' ?>>Admin</option>
                                             <option value="Landlord" <?= $userRoleSel == 'Landlord' ? 'selected' : '' ?>>Landlord</option>
                                             <option value="Admin Clerk" <?= $userRoleSel == 'Admin Clerk' ? 'selected' : '' ?>>Admin Clerk</option>
-                                            <option value="customer" <?= $userRoleSel == 'customer' ? 'selected' : '' ?>>customer</option>
+                                            <option value="Customer" <?= $userRoleSel == 'Customer' ? 'selected' : '' ?>>Customer</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class=" row form-row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="user_id">User ID</label>
                                         <input type="text" name="<?= esc('user_id') ?>" value="<?= $row->user_id ?>" class="form-control mb-1" id="user_id" readonly>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="phone">Phone</label>
                                         <input type="text" name="<?= esc('phone') ?>" value="<?= old_value('phone', $row->phone) ?>" class="form-control mb-1" id="phone">
                                     </div>
-                                </div>
-                                <div class=" row form-row">
-                                    <div class="col-lg-6">
+
+                                    <div class="col-lg-4">
                                         <label for="gender">Gender</label>
-                                        <?php $genSelect = $row->gender ?>
+                                        <?php $genSelect = old_value('gender', $row->gender) ?>
                                         <select name="<?= esc('gender') ?>" class="form-control mb-1" id="gender">
                                             <option value="Male" <?= $genSelect == 'Male' ? 'selected' : ''  ?>>Male</option>
                                             <option value="Female" <?= $genSelect == 'Female' ? 'selected' : ''  ?>>Female</option>
                                         </select>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="image"> Profile Image
-                                            <input onchange="display_image(this.files[0], event);change_image(this.files[0], event)" value="<?= old_value('image', $row->image) ?>" type="file" class="form-control" name="<?= esc('image') ?>">
-                                        </label>
                                     </div>
                                 </div>
 
@@ -201,11 +202,12 @@
                                 <div class="row form-row">
                                     <div class="col-lg-12 text-center">
                                         <label>
-                                            <img src="<?= ROOT . '/assets/img/user.jpeg' ?>" style="width:50px; height:50px; object-fit:cover;cursor:pointer">
-                                            <input onchange="display_image(this.files[0], event)" type="file" name="<?= esc('image') ?>" class="d-none">
+                                            <label for="image"> Profile Image</label> <br>
+                                            <img src="<?= old_value(get_image($row->image), get_image($row->image, 'user'))  ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover"> 
                                         </label>
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="row form-row">
                                     <div class="col-lg-6">
                                         <div class="form-control mb-1"><?= $row->firstname ?></div>
@@ -244,8 +246,6 @@
                                     <?php
                                     switch ($_SESSION['userRole']) {
                                         case 'Admin':
-                                        case 'Doctor':
-                                        case 'Sister':
                                     ?>
                                             <div class="col-lg-6">
                                                 <a class="mb-3 btn btn-outline-<?= THEME_COLOR ?>" href="<?= ROOT ?>/admin/users" style="border-radius:20px"><i class="bi bi-arrow-left"></i> BACK TO USERS</a>

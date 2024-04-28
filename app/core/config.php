@@ -12,7 +12,7 @@ if(empty($_SERVER['SERVER_NAME']) && php_sapi_name() == 'cli' || (!empty($_SERVE
 	define('DBPASS', '');
 	define('DBDRIVER', 'sql');
 	
-	define('ROOT', 'http://localhost/kf-refined/public');
+	define('ROOT', 'http://localhost/kaffirfold-framework/public');
 
 }else
 {
