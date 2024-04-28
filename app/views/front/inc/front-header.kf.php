@@ -6,8 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title><?= $page_title . ' | ' . APP_NAME ?></title>
-  <meta content="With a user-friendly interface and intuitive design patterns, Kaffir Fold Framework takes you from the absolute beginning of your project to about 40% completion in no time. Our framework is not only easy to use but also highly customizable to fit the needs of your unique project" name="description">
-  <meta content="PHP,MVC,Framework,Development,KaffirFold,Jongi Brands,Copmuter Science,Web, Internet" name="keywords">
+  <meta content='With a user-friendly interface and intuitive design patterns, Kaffir Fold Framework takes you from the absolute beginning of your project to about 70% completion in no time. Our framework is not only easy to use but also highly customizable to fit the needs of your unique project. Get started with Kaffir Fold Framework today and watch your App Development process become faster and more efficient than ever before.' name="description">
+  <meta content="PHP,MVC,Framework,Development,KaffirFold,Jongi Brands,Computer Science,Web, Internet" name="keywords">
   <meta content="Jongi Mbodla - The Tech Kaffir <jongim@jongibrandz.co.za>" name="keywords">
 
   <!-- Favicons -->
@@ -37,8 +37,8 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center text-light"><a class="text-white" href="mailto:<?= $comp_detail->email ?? 'salesoffice@jongibrandz.co.za' ?>"><?= $comp_detail->email ?? 'salesoffice@jongibrandz.co.za' ?></a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4 text-light"><span><a class="text-white" href="tel:<?= $comp_detail->phone ?? '+27123456789' ?>"><?= $comp_detail->phone ?? '27 12 345 6789' ?></a></span></i>
+        <i class="bi bi-envelope d-flex align-items-center text-light ms-1"><a class="text-white" href="mailto:<?= $comp_detail->email ?? 'salesoffice@jongibrandz.co.za' ?>"><?= $comp_detail->email ?? 'salesoffice@jongibrandz.co.za' ?></a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4 text-light"><span><a class="text-white" style="font-size:12px" href="tel:<?= $comp_detail->phone ?? '+27123456789' ?>"><?= $comp_detail->phone ?? '27 12 345 6789' ?></a></span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center bg-light text-dark px-2" style="border-radius: 15px;">
         <a href="<?= $social_link->twitter_link ?? '#' ?>" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -62,9 +62,9 @@
         <a href="<?= ROOT ?>"><img src="<?= ROOT ?>/assets/img/<?= LOGO ?>" width="" height="" alt="<?= LOGO_IMG_ALT ?>" class="img-fluid"></a>
       </div>
       <!-- Google Translate here -->
-      <div class="translate bg-light px-3 shadow" id="google_translate_element"></div>
+      <!--<div class="translate bg-light px-3 shadow" id="google_translate_element"></div>-->
       <!-- Google Translate End -->
-      <nav id="navbar" class="navbar">
+      <!--<nav id="navbar" class="navbar">-->
 
         <nav id="navbar" class="navbar">
           <ul>
@@ -80,9 +80,24 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
+
+
         <ul id='blog-on-mobile'>
-          <li><a href="<?= ROOT ?>/home/blog">Blog</a></li>
+          <?php if (!$logged_in_user) : ?>
+            <div class="d-flex mt-3">
+              <a href="<?= ROOT . '/home/blog' ?>"><i class="bi bi-megaphone-fill text-secondary px-1 m-1" style="border: 1px solid #4154f1;font-size:35px"></i></a>
+              <a href="<?= ROOT . '/login' ?>"><i class="bi bi-door-open-fill text-success px-1 m-1 me-1" style="border: 1px solid #4154f1;font-size:35px"></i></a>
+          <?php else : ?>
+            <div class="d-flex mt-3">
+              <a href="<?= ROOT . '/admin' ?>"><i class="bi bi-speedometer2 text-<?= THEME_COLOR ?> px-1 m-1" style="border: 1px solid #4154f1;font-size:35px"></i></a>
+              
+              <a href="<?= ROOT . '/home/blog' ?>"><i class="bi bi-megaphone-fill text-secondary px-1 m-1" style="border: 1px solid #4154f1;font-size:35px"></i></a>
+
+              <a href="<?= ROOT . '/logout' ?>"><i class="bi bi-door-closed-fill text-danger px-1 m-1" style="border: 1px solid #4154f1;font-size:35px"></i></a>
+            </div>
+          <?php endif ?>
         </ul>
+
 
 
     </div>

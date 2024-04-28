@@ -19,7 +19,7 @@ class DocumentUpload
 	protected $allowedColumns = [
 		'date',
 		'Time',
-		'patient',
+		'customer',
 		'document',
 		'document_name',
 		'created_by',
@@ -46,7 +46,7 @@ class DocumentUpload
 
 		// Document validation - Check inside the file 
 		if (empty($files_data['document']['name'])) {
-			$this->errors['document'] = 'An document is required!';
+			$this->errors['document'] = 'A document is required!';
 		} else 
         if (!isset($files_data['document']['type']) || !in_array($files_data['document']['type'], $allowed_types)) {
 			$this->errors['document'] = 'Invalid document type. Only types: ' . implode(', ', $allowed_types) . ' allowed!';
@@ -67,27 +67,39 @@ class DocumentUpload
 		return false;
 	}
 
-	public function patientDocs($patient)
+	public function customerDocs($customer)
 	{
-		$sql = "SELECT * FROM document_upload WHERE patient = ?";
+		$sql = "SELECT * FROM document_upload WHERE customer = ?";
 		$stmt = $this->connect()->prepare($sql);
-		$stmt->execute([$patient]);
+		$stmt->execute([$customer]);
 		$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 		if($result)
 		{
 			return $result;
 		}
 	}
-	
-	public function docs()
+
+	public function scd_specific($doc_id) 
 	{
-		$sql = "SELECT du.*, p.id, p.Surname, p.First_Name
-				FROM document_upload du
-				JOIN patients p ON du.patient = p.id
-				ORDER BY date DESC 
-				";
-		$result = $this->query($sql);
-		
-		return $result;
+		$sql = "SELECT 
+				du.doc_id,
+				du.date,
+				du.Time,
+				du.customer,
+				du.document,
+				du.document_name,
+				usr.firstname,
+				usr.surname,
+				usr.user_id,
+				usr.phone
+				FROM document_upload du 
+				LEFT JOIN users usr ON du.customer = usr.user_id
+				LEFT JOIN customers c ON usr.user_id = usr.user_id
+				WHERE du.doc_id = ?";
+		$stmt = $this->connect()->prepare($sql);
+		$stmt->execute([$doc_id]);
+
+		$documents = $stmt->fetch(PDO::FETCH_OBJ);
+		return $documents;
 	}
 }

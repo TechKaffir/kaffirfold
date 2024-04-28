@@ -13,7 +13,7 @@
                   <div class="mt-4">
                     <h3 class="animate__animated animate__fadeInDown mt-4">You are now navigating: <br> <span class="text-<?= THEME_COLOR ?>"><?= APP_NAME ?></span> </h3>
                   </div>
-                  <p class="animate__animated animate__fadeInUp shadow <?= FR_HERO_DESC_TEXT ?> p-2"><?= !empty($comp_detail->about) ? substr($comp_detail->about, 0, 200) : 'Designed, created and powered by Jongi Brands Tech Solutions, in Gqeberha, Eastern Cape, South Africa ' ?> <a class="readmore" href="#about" class="btn btn-<?= THEME_COLOR ?> btn-sm">
+                  <p class="animate__animated animate__fadeInUp shadow <?= FR_HERO_DESC_TEXT ?> p-2"><?= !empty(APP_DESC) ? substr(APP_DESC, 0, 200) : 'Designed, created and powered by Jongi Brands Tech Solutions, in Gqeberha, Eastern Cape, South Africa ' ?> <a class="readmore" href="<?= ROOT ?>/home/contact" class="btn btn-<?= THEME_COLOR ?> btn-sm">
                       read more...
                     </a></p>
                   <div class="mb-5">
@@ -38,7 +38,7 @@
           <div class="portfolio-wrap">
             <img src="<?= ROOT ?>/assets/img/<?= GALLERY_IMG_1 ?>" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>Gallery Title 1</h4>
+              <h4>Gallery Title <br> One</h4>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
           <div class="portfolio-wrap">
             <img src="<?= ROOT ?>/assets/img/<?= GALLERY_IMG_2 ?>" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>Gallery Title 2</h4>
+              <h4>Gallery Title <br> Two</h4>
             </div>
           </div>
         </div>
@@ -56,14 +56,26 @@
           <div class="portfolio-wrap">
             <img src="<?= ROOT ?>/assets/img/<?= GALLERY_IMG_3 ?>" class="img-fluid" alt="">
             <div class="portfolio-info">
-              <h4>Gallery Title 3</h4>
+              <h4>Gallery Title <br> Three</h4>
             </div>
           </div>
         </div>
       </div>
-      <hr>
     </div>
-  </section><!-- End Gallery Section -->
+  </section>
+  <!-- End Gallery Section -->
+
+  <!-- ======= Location Section ======= -->
+  <section id="location" class="location">
+    <div class="row">
+      <div class="col-lg-12">
+        <!--Add Google Maps Embed link hereunder-->
+        
+      </div>
+    </div>
+  </section>
+  <!-- End Location Section -->
+
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
@@ -74,11 +86,12 @@
     var app = d.createElement('script');
     app.type = 'text/javascript';
     app.async = true;
-    app.src = 'https://www.speakpipe.com/loader/oq9vha0o9tc6svsuivk6wv3m0s5a45f4.js';
+    app.src = 'https://www.speakpipe.com/loader/v79zrxpfk4zvgdaap1zd98nee0omm9jn.js';
     var s = d.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(app, s);
   })(document);
 </script>
 <!-- End SpeakPipe code -->
+
 
 <?php $this->view('front/inc/front-footer', $data) ?>

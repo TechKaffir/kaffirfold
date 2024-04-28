@@ -8,18 +8,13 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="<?= ROOT ?>">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="<?= ROOT . '/home/blog'?>">Blog/Centre News</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="<?= ROOT . '#'?>">Careers</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="<?= ROOT . '#'?>">Partners</a></li>
-            
-
-
+            </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links <?= FR_FOOTER_TEXT ?>">
             <h4>LEGAL</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="<?= ROOT . '/home/popia' ?>"><?= 'POPIA Compliance' ?></a></li>
-              <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="#" target="_blank"><?= 'Documentation' ?></a></li>
               <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="<?= ROOT . '/home/privacy' ?>">Privacy policy</a></li>
               <li><i class="bx bx-chevron-right"></i> <a class="<?= FR_FOOTER_TEXT ?>" href="#">Terms of service</a></li>
             </ul>
@@ -36,8 +31,8 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <h4><?= strtoupper('About ' . APP_NAME_SHORT)  ?></h4>
-            <p class="<?= FR_FOOTER_TEXT ?>"><?= !empty($comp_detail->about) ? substr($comp_detail->about, 0, 200) : 'An awesome Framework to initiate PHP Projects in PHP OOP MVC.' ?>
-              <a class="readmore" href="<?= ROOT ?>/#about">
+            <p class="<?= FR_FOOTER_TEXT ?>"><?= !empty(APP_DESC) ? substr(APP_DESC, 0, 200) : 'An awesome Framework to initiate PHP Projects in PHP OOP MVC.' ?>
+              <a class="readmore" href="<?= ROOT ?>/home/contact">
                 read more...
               </a>
             </p>
@@ -54,10 +49,8 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span><?= APP_NAME ?></span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Powered by <a class="text-<?= THEME_COLOR ?>" href="https://techsolutions.jongibrandz.co.za/" target="_blank">Jongi Brands Tech Solutions</a> <hr> <small><em>Credit to <a class="text-<?= THEME_COLOR ?>" href="https://bootstrapmade.com/" target="_blank">Bootstrapmade</a> for primary UI Template then secondary KaffirFold UI, backend & frontend!! </em></small>
+        &copy; Copyright <strong><span><?= APP_NAME ?></span></strong>. All Rights Reserved <br>
+        Powered by <a class="text-<?= THEME_COLOR ?>" href="https://techsolutions.jongibrandz.co.za/" target="_blank">Jongi Brands Tech Solutions</a> 
       </div>
     </div>
   </footer><!-- End Footer -->

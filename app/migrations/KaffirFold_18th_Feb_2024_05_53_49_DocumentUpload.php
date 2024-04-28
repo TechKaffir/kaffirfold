@@ -16,7 +16,7 @@ class DocumentUpload extends Migration
 		$this->addColumn('doc_Id int(10) unsigned NOT NULL AUTO_INCREMENT');
 		$this->addColumn('date date DEFAULT NULL');
 		$this->addColumn('Time time DEFAULT NULL');
-		$this->addColumn('patient int(10) unsigned DEFAULT NULL');
+		$this->addColumn('customer int(10) unsigned DEFAULT NULL');
 		$this->addColumn('document blob DEFAULT NULL');
 		$this->addColumn('document_name varchar(40) DEFAULT NULL');
 

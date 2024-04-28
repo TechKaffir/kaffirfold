@@ -84,6 +84,7 @@ function user($key = '')
 	return '';
 }
 
+
 /** load an image, and if it does not exist, load a placeholder **/
 function get_image($file = '', $type = 'post')
 {

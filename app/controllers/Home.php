@@ -92,7 +92,6 @@ class Home
 		$blog = new Blog();
 		$data['posts'] = $blog->findAll();
 		$data['single_post'] = $blog->singlePost($id);
-		// show($data['single_post']); die;
 		$data['recentPosts'] = $blog->recentPosts();
 
 		// Categories
@@ -191,5 +190,13 @@ class Home
 		$data['comp_detail'] = $detail->first(['id' => 1]);
 
 		$this->view('front/pages/privacy',$data);
+	}
+	public function receipt()
+	{
+
+		$data['page_title'] = 'Payment Receipt';
+
+		/*** DISPLAY THE VIEW PAGE ***/
+		$this->view('admin/company/pdf/receipt', $data);
 	}
 }

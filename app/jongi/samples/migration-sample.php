@@ -18,16 +18,17 @@ class CLASSNAME extends Migration
 		$this->addColumn('created_by varchar(30) NULL');
 		$this->addColumn('updated_by varchar(30) NULL');
 		
-
 		$this->addColumn('date_created datetime default current_timestamp()');
 		$this->addColumn('date_updated datetime NULL');
+		// Primary Key
 		$this->addPrimaryKey('id');
 		
-		 # You may add/list your table's keys and unique keys below
-
+		# You may add/list your table's keys and unique keys below
+		// Indexing
 		// $this->addKey('key/column');
+		// Unique Keys
 		// $this->addUniqueKey('key/column');
-		
+		// Create Table
 		$this->createTable('{classname}');
 
 		/** insert data **/

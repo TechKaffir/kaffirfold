@@ -65,17 +65,20 @@ class Login
 
 			$token = $user->getResetToken($_POST['email']);
 			$token = $token->reset_token_hash;
+			$root = ROOT;
 
 			$mail = $mailer->sendMail();
 		
 
 			// Set Properties
-			$mail->setFrom('<YOUR EMAIL HERE>', '<BUSINESS NAME>');   
+			$mail->setFrom(EMAIL_ADDRESS, APP_NAME);     
 			$mail->addAddress($_POST['email']);               
 			$mail->Subject = ('PASSWORD RESET');               
 			$mail->Body = <<<END
 			
-				Click <a href="<?= ROOT ?>/login/forgotLink/{$token}">Here</a> to reset your password.
+				You have requested the recovery of you password and as we promised, we are at your service in this regard. <br>
+				Kindly click <a href="$root/login/forgotLink/{$token}">Here</a> to reset your password. <br><br> <hr> 
+				<em><strong>The KaffirFold Development Team</strong></em>
 			
 			END; 
 
@@ -103,7 +106,7 @@ class Login
 		$token = basename($_GET['url']);
 		$token_hash = hash('sha256',$token);
 
-		$user_token = $user->tokenInURL($token);
+		$user_token = $user->tokenInURL($token_hash);
 		
 		if($user_token == NULL)
 		{

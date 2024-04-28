@@ -22,7 +22,7 @@
                 <h1>Compliance Policy: Protection of Personal Information Act (POPIA) - <?= APP_NAME ?></h1>
 
                 <h2>1. Introduction</h2>
-                <p><?= APP_NAME ?>, established in <?= EST_YEAR ?>, is committed to providing exceptional occupational and primary health services in Port Elizabeth, South Africa. In line with our dedication to excellence, we recognize the importance of safeguarding the privacy and security of personal information entrusted to us by our clients, employees, and other stakeholders. This Compliance Policy outlines <?= APP_NAME ?>'s commitment to compliance with the Protection of Personal Information Act (POPIA) and establishes guidelines for the collection, use, and protection of personal information.</p>
+                <p>In line with our dedication to excellence, <?= APP_NAME ?> recognizes the importance of safeguarding the privacy and security of personal information entrusted to us by our clients, employees, and other stakeholders. This Compliance Policy outlines our commitment to compliance with the Protection of Personal Information Act (POPIA) and establishes guidelines for the collection, use, and protection of personal information.</p>
 
                 <h2>2. Scope</h2>
                 <p>This policy applies to all personal information processed by <?= APP_NAME ?>, including but not limited to information pertaining to clients, employees, contractors, and suppliers.</p>
@@ -39,7 +39,7 @@
                 </ul>
 
                 <h2>4. Collection and Use of Personal Information</h2>
-                <p><?= APP_NAME ?> will only collect personal information for lawful purposes related to the provision of occupational and primary health services. Personal information will be collected directly from individuals whenever possible, and individuals will be informed of the purposes for which their information is being collected.</p>
+                <p><?= APP_NAME ?> will only collect personal information for lawful purposes related to its primary services. Personal information will be collected directly from individuals whenever possible, and individuals will be informed of the purposes for which their information is being collected.</p>
                 <p>Personal information will only be used for the purposes for which it was collected, unless otherwise authorized by law or by the individual concerned.</p>
 
                 <h2>5. Disclosure of Personal Information</h2>

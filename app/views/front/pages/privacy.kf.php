@@ -24,7 +24,7 @@
                 <p><?= APP_NAME ?> is committed to protecting the privacy and security of personal information collected from individuals who visit our website or use our services. This Privacy Policy outlines how we collect, use, and disclose personal information and the rights and choices available to individuals regarding their information.</p>
 
                 <h2>1. Information Collection and Use</h2>
-                <p><?= APP_NAME ?> collects personal information for the purposes of providing occupational and primary health services, including but not limited to information related to clients, employees, contractors, and suppliers. Personal information may be collected through our website, over the phone, or in person.</p>
+                <p><?= APP_NAME ?> collects personal information strictly for the purposes of its primary services, including but not limited to information related to clients, employees, contractors, and suppliers. Personal information may be collected through our website, over the phone, or in person.</p>
 
                 <h2>2. Information Sharing and Disclosure</h2>
                 <p><?= APP_NAME ?> will not disclose personal information to third parties without the consent of the individual concerned, unless required or permitted by law. We may share personal information with service providers who assist us in providing our services, subject to appropriate confidentiality and security measures.</p>

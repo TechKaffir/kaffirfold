@@ -71,7 +71,6 @@
                                 <div class="form-row">
                                     <div class="d-grid gap-2 col-lg-12">
                                         <button type="submit" class="btn btn-outline-<?= THEME_COLOR ?>">CREATE NEW POST</button>
-                                        <?php // show($errors); die; ?>
                                         <a href="<?= ROOT ?>/admin/blog" class="btn btn-danger">CANCEL</a>
                                     </div>
                                 </div>

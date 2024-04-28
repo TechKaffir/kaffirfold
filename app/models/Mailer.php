@@ -25,12 +25,12 @@ class Mailer
 		// $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
 		$mail->isSMTP();      
 
-		$mail->Host       = '';  // eg smtp.gmail.com                   
+		$mail->Host       = MAIL_HOST;  
 		$mail->SMTPAuth   = true;                                   
-		$mail->Username   = ''; // email sending from                    
-		$mail->Password   = ''; // this email password                              
-		$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;           
-		$mail->Port       = 587;  // else 465                                 
+		$mail->Username   = USERNAME; 
+		$mail->Password   = PWD; 
+		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
+		$mail->Port       = PORT;                         
 
 		// Content
 		$mail->isHTML(true);  

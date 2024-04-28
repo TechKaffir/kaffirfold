@@ -3,6 +3,7 @@ defined('ROOTPATH') or exit('Access Denied!');
 /**
  * Admin Controller Class
  */
+
 use Dompdf\Dompdf;
 
 class Admin
@@ -14,13 +15,26 @@ class Admin
 		/*** INSTANTIATE RELEVANT INSTANCES (OBJECTS) ***/
 		$user = new User();
 		$notification = new Notification();
+		$customer = new Customer();
+		$payment = new Payment();
 
 		/*** CHECK IF USER IS LOGGED IN ***/
 		if (!$user->logged_in())
 			redirect('login');
-
+		else if($_SESSION['userRole'] == MAIN_MOD_SINGULAR)
+		{
+			redirect("admin/details/" . user('id'));
+		}
+		
 		/*** EXPORT THE (OBJECTS) VARIABLES ***/
-		$data['num_users'] = $user->userRowCount();
+		$data['customers'] = $customer->findAll();
+		// Complains
+		$data['complaints'] = $customer->customersWIthComplaints();
+		// Payments
+		$data['payments'] = $payment->findAll();
+		$data['sumPayments'] = $payment->sumPayments();
+		$data['recentPayments'] = $payment->recentPayments();
+
 		// Notifications
 		$data['notifications'] = $notification->notifications();
 		$data['unreadNotifications'] = $notification->getUnreadNotifications(user('id'));
@@ -52,7 +66,7 @@ class Admin
 		// Notifications
 		$data['notifications'] = $notification->notifications();
 		$data['unreadNotifications'] = $notification->getUnreadNotifications(user('id'));
-		
+
 
 
 		if ($action == 'new') {
@@ -83,7 +97,7 @@ class Admin
 							// Insert New User details into DB
 							$user->insert($_POST);
 							Util::setFlash('register_success', 'User Registered Successfully!!');
-							redirect('admin/users'); 
+							redirect('admin/users');
 						}
 					}
 				}
@@ -141,7 +155,7 @@ class Admin
 					if (file_exists($data['row']->image))
 						unlink($data['row']->image);
 
-						Util::setFlash('user_delete_success', 'User deleted successfully!!');
+					Util::setFlash('user_delete_success', 'User deleted successfully!!');
 					redirect('admin/users');
 				}
 			}
@@ -151,6 +165,138 @@ class Admin
 
 
 		$this->view('admin/users/users', $data);
+	}
+	public function customers($action = null, $id = null)
+	{
+		$user = new User();
+		$notification = new Notification;
+		$customer = new Customer;
+		$payment = new Payment;
+
+		// Create Users' Profile Folder 
+		$folder = 'uploads/users/';
+		if (!file_exists($folder)) {
+			mkdir($folder, 0777, true);
+		}
+
+		// Check if current user is looged in 
+		if (!$user->logged_in())
+			redirect('login');
+
+		$data['action'] = $action;
+		$data['customers'] = $customer->customersAll();
+
+		// Notifications
+		$data['notifications'] = $notification->notifications();
+		$data['unreadNotifications'] = $notification->getUnreadNotifications(user('id'));
+
+		if ($action == 'new') {
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				if ($customer->validate($_FILES, $_POST)) {
+					// Upload User Profile Image
+					$destination = $folder . time() . '_' . $_FILES['image']['name'];
+					move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+
+					$_POST['image'] = $destination;
+					if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+						die('Invalid CSRF Token!');
+					} else {
+						/* Create User First */
+						// Check if email does not exist
+						$user_email = $user->getUserByEmail($_POST['email']);
+						$username = $user->getUserByUsername($_POST['username']);
+						if ($user_email) {
+							Util::setFlash('email_exists_error', 'Email already in use by another user!!');
+							redirect('admin/users/new');
+						} else 
+						if ($username) {
+							Util::setFlash('username_exists_error', 'Username already in use by another user!!');
+							redirect('admin/users/new');
+						} else {
+							// Hash The Submitted Password
+							$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+							$user->insert($_POST);
+
+							$_POST['user_id'] = $_POST['user_id'];
+
+							// Insert New customer details into DB
+
+							$customer->insert($_POST);
+							Util::setFlash('cust_register_success', 'Customer Registered Successfully!!');
+							redirect('admin/customers');
+						}
+					}
+				}
+			}
+		} else 
+		if ($action == 'edit') {
+			// Extract ID from URL
+			$url = ROOT . "/admin/customers/view/$id";
+			$id = extract_id_from_url($url);
+			$data['user_id'] = $id;
+			// Single customer Row
+			$data['row'] = $customer->singleCustomer($data['user_id']);
+
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				if ($customer->validate($_FILES, $_POST)) {
+					// Check if password is available, if not there's nothing to update
+					if (empty($_POST['password'])) {
+						unset($_POST['password']);
+					} else { // else update the password
+						$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+					}
+					// Update the uploaded customer Profile image
+					$destination = $folder . time() . '_' . $_FILES['image']['name'];
+					move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+
+					$_POST['image'] = $destination;
+
+					if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+						die('Invalid CSRF Token!');
+					} else {
+						// Update customer
+						$user->update($id, $_POST, 'user_id');
+						Util::setFlash('user_update_success', 'customer record updated successfully!!');
+						$customer->update($id, $_POST, 'user_id');
+						Util::setFlash('cust_update_success', 'customer record updated successfully!!');
+
+						redirect('admin/customers');
+					}
+				}
+			}
+		} else 
+		if ($action == 'view') {
+
+			
+			
+		} else 
+		if ($action == 'delete') {
+			// Extract ID from URL
+			$url = ROOT . "/admin/customers/view/$id";
+			$id = extract_id_from_url($url);
+			$data['user_id'] = $id;
+			// Single customer Row
+			$data['row'] = $customer->singleCustomer($data['user_id']);
+			// Get the single customer's payments list
+            $data['payments'] = $payment->paymentsWithUserID(user('user_id'));
+
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+				if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+					die('Invalid CSRF Token!');
+				} else {
+					$user->delete($id, 'user_id');
+					$customer->delete($id, 'user_id');
+
+					Util::setFlash('cust_delete_success', 'Customer deleted successfully!!');
+					redirect('admin/customers');
+				}
+			}
+		}
+		$data['errors'] = $customer->errors;
+		$data['page_title'] = 'Customers';
+
+		$this->view('admin/customers/customers', $data);
 	}
 	public function link($action = null, $id = null)
 	{
@@ -180,7 +326,7 @@ class Admin
 						die('Invalid CSRF Token!');
 					} else {
 						$social_link->update($id, $_POST);
-						Util::setFlash('link_update_success','Record updated successfully!!');
+						Util::setFlash('link_update_success', 'Record updated successfully!!');
 
 						redirect('admin/link');
 					}
@@ -354,7 +500,7 @@ class Admin
 
 					if (file_exists($data['row']->image))
 						unlink($data['row']->image);
-					
+
 					Util::setFlash('image_delete_success', 'Image deleted successfully!!');
 					redirect('admin/gallery');
 				}
@@ -597,16 +743,17 @@ class Admin
 
 		$this->view('admin/company/notifications', $data);
 	}
-	
 	public function documents($action = null, $id = null)
 	{
 		$user = new User();
 		$document = new DocumentUpload();
+		$customer = new Customer();
 
 		// Notifications
 		$notification = new Notification;
 		$data['notifications'] = $notification->notifications();
 		$data['unreadNotifications'] = $notification->getUnreadNotifications(user('id'));
+		$data['customerList'] = $customer->customers();
 
 		// Check if current user is logged in 
 		if (!$user->logged_in())
@@ -619,7 +766,7 @@ class Admin
 		}
 
 		$data['action'] = $action;
-		$data['rows'] = $document->docs();
+		$data['rows'] = $document->findAll();
 
 		if ($action == 'new') {
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -642,7 +789,7 @@ class Admin
 		} else 
 		if ($action == 'edit') {
 			$data['row'] = $document->first(['doc_Id' => $id]);
-	
+
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				if ($document->validate($_FILES, $_POST, $id)) {
 					$folder = '';
@@ -683,78 +830,127 @@ class Admin
 		$data['page_title'] = 'Uploaded Documents';
 
 
-		$this->view('admin/patients/documents', $data);
+		$this->view('admin/customers/documents', $data);
 	}
-	
-	public function departments($action = null, $id = null)
+	public function payments($action = null, $id = null)
 	{
 		$user = new User();
-		$department = new Department();
+		$payment = new Payment();
+		$customer = new Customer();
 
 		// Notifications
 		$notification = new Notification;
 		$data['notifications'] = $notification->notifications();
 		$data['unreadNotifications'] = $notification->getUnreadNotifications(user('id'));
 
-		// Check if current user is looged in 
+
+		// Check if current user is logged in 
 		if (!$user->logged_in())
 			redirect('login');
 
 		$data['action'] = $action;
-		$data['departments'] = $department->findAll();
-
+		$data['payments'] = $payment->payments();
+		$data['customers'] = $customer->customers();
 
 		if ($action == 'new') {
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-				if ($department->validate($_POST)) {
+				if ($payment->validate($_POST)) {
 
 					if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
 						die('Invalid CSRF Token!');
 					} else {
-						// Insert New Dept into DB
-						$department->insert($_POST);
-						Util::setFlash('dept_create_success', 'Department added successfully!!');
-						redirect('admin/departments');
+						$payment->insert($_POST);
+						Util::setFlash('payment_add_success', 'Payment added successfully!!');
+						redirect('admin/payments');
 					}
 				}
 			}
 		} else 
 		if ($action == 'edit') {
-			$data['row'] = $department->first(['id' => $id]);
+			$data['row'] = $payment->first(['id' => $id]);
 
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-				if ($department->validate($_POST, $id)) {
+				if ($payment->validate($_POST, $id)) {
 
 					if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
 						die('Invalid CSRF Token!');
 					} else {
-						// Update department
-						$department->update($id, $_POST);
-						Util::setFlash('dept_update_success', 'Department updated successfully!!');
-						redirect('admin/departments');
+						$payment->update($id, $_POST);
+
+						if (file_exists($data['row']->pop))
+							unlink($data['row']->pop);
+
+						Util::setFlash('payment_update_success', 'Payment details updated successfully!!');
+						redirect('admin/payments');
 					}
 				}
 			}
-		} else 
+		} else
+		if ($action == 'view') {
+
+			$payViewUrl = ROOT . '/admin/payments/view/' . $id;
+			$pay_id = extract_id_from_url($payViewUrl);
+			$data['pay_id'] = $pay_id;
+
+			$data['scp_specific'] = $payment->scp_specific($data['pay_id']);
+		
+		}	
 		if ($action == 'delete') {
-			$data['row'] = $department->first(['id' => $id]);
+			$data['row'] = $payment->first(['id' => $id]);
 
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
 				if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
 					die('Invalid CSRF Token!');
 				} else {
-					$department->delete($id);
-					Util::setFlash('dept_delete_success', 'Department deleted successfully!!');
-					redirect('admin/departments');
+					$payment->delete($id, 'id');
+
+					if (file_exists($data['row']->pop))
+						unlink($data['row']->pop);
+
+					Util::setFlash('payment_delete_success', 'Payment deleted successfully!!');
+					redirect('admin/payments');
 				}
 			}
 		}
-		$data['errors'] = $department->errors;
-		$data['page_title'] = APP_NAME . ' Departments';
+		$data['errors'] = $payment->errors;
+		$data['page_title'] = 'Payments';
 
 
-		$this->view('admin/company/departments', $data);
+		$this->view('admin/customers/payments', $data);
 	}
-	
+	public function details($action = null, $id = null)
+	{
+		
+		$user = new User();
+		$customer = new Customer();
+		$payment = new Payment();
+		$document = new DocumentUpload();
+
+		$data['row'] = $customer->first(['id' => $id]);
+		
+		// Notifications
+		$notification = new Notification;
+		$data['notifications'] = $notification->notifications();
+		$data['unreadNotifications'] = $notification->getUnreadNotifications(user('id'));
+
+		// Check if current user is logged in 
+		if (!$user->logged_in())
+			redirect('login');
+
+		$data['action'] = $action;
+		// Get the single customer's combined details except for payments,contracts,docs,complaints
+		$data['singleCustomerInfo'] = $customer->singleCustomerAllModules(user('user_id'));
+
+		// Get the single customer's payments list
+		$pUID = user('user_id');
+        $data['payments'] = $payment->paymentsWithUserID($pUID);
+
+		// Get the single customer's docs list
+		$data['stdoc'] = $document->customerDocs(user('user_id'));
+		
+		$data['errors'] = $customer->errors;
+		$data['page_title'] = 'Customer Full Profile';
+
+		$this->view('admin/customers/details', $data);
+	}
 }

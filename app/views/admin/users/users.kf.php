@@ -23,6 +23,8 @@
                                 <input type="hidden" name="<?= esc('csrf_token') ?>" value="<?= $_SESSION['csrf_token'] ?>">
                                 <!--VERIFY TOKEN-->
                                 <input type="hidden" name="<?= esc('verify_token') ?>" value="<?= md5(rand()) ?>">
+                                <!--USER CREATING RECORD-->
+                                <input type="hidden" name="<?= esc('created_by') ?>" value="<?= user('firstname' . ' ' . user('surname')) ?>">
                                 <?php if (!empty($errors)) : ?>
                                     <div class="alert alert-danger text-center col-lg-12">
                                         <?= implode('<br>', $errors);  ?>
@@ -62,13 +64,9 @@
                                         <select name="<?= esc('user_role') ?>" id="user_role" class="form-control mb-1">
                                             <option value="Select Role">--Select User Role--</option>
                                             <option value="Admin" <?= $selUserRole == 'Admin' ? 'selected' : '' ?>>Admin</option>
-                                            <option value="Doctor" <?= $selUserRole == 'Doctor' ? 'selected' : '' ?>>Doctor</option>
-                                            <option value="Sister" <?= $selUserRole == 'Sister' ? 'selected' : '' ?>>Sister</option>
-                                            <option value="Nurse" <?= $selUserRole == 'Nurse' ? 'selected' : '' ?>>Nurse</option>
-                                            <option value="Pharmacy Clerk" <?= $selUserRole == 'Pharmacy Clerk' ? 'selected' : '' ?>>Pharmacy Clerk</option>
-                                            <option value="Claims Clerk" <?= $selUserRole == 'Claims Clerk' ? 'selected' : '' ?>>Claims Clerk</option>
+                                            <option value="Landlord" <?= $selUserRole == 'Landlord' ? 'selected' : '' ?>>Landlord</option>
                                             <option value="Admin Clerk" <?= $selUserRole == 'Admin Clerk' ? 'selected' : '' ?>>Admin Clerk</option>
-                                            <option value="Receptionist" <?= $selUserRole == 'Receptionist' ? 'selected' : '' ?>>Receptionist</option>
+                                            <option value="customer" <?= $selUserRole == 'customer' ? 'selected' : '' ?>>customer</option>
                                         </select>
                                     </div>
                                 </div>
@@ -111,7 +109,12 @@
                             </div>
 
                             <form method="POST" action="" id="user-update" enctype="multipart/form-data">
+                                <!--CSRF TOKEN-->
                                 <input type="hidden" name="<?= esc('csrf_token') ?>" value="<?= $_SESSION['csrf_token'] ?>">
+                                <!--USER EDITING RECORD-->
+                                <input type="hidden" name="<?= esc('updated_by') ?>" value="<?= user('firstname') . ' ' . user('surname') ?>">
+                                <!--DATE RECORD UPDATED-->
+                                <input type="hidden" name="<?= esc('date_updated') ?>" value="<?= date('Y-m-d H:i:s') ?>">
                                 <?php if (!empty($errors)) : ?>
                                     <div class="alert alert-danger text-center col-lg-12">
                                         <?= implode('<br>', $errors);  ?>
@@ -145,23 +148,19 @@
                                     <div class="col-lg-6">
                                         <label for="user_role">User Role</label>
                                         <?php $userRoleSel = $row->user_role ?>
-                                        <select name="<?= esc('user_role') ?>" id="user_role" class="form-control mb-1">
+                                        <select name="<?= esc('user_role',$row->user_role) ?>" id="user_role" class="form-control mb-1">
                                             <option value="Select Role">--Select User Role--</option>
                                             <option value="Admin" <?= $userRoleSel == 'Admin' ? 'selected' : '' ?>>Admin</option>
-                                            <option value="Doctor" <?= $userRoleSel == 'Doctor' ? 'selected' : '' ?>>Doctor</option>
-                                            <option value="Sister" <?= $userRoleSel == 'Sister' ? 'selected' : '' ?>>Sister</option>
-                                            <option value="Nurse" <?= $userRoleSel == 'Nurse' ? 'selected' : '' ?>>Nurse</option>
-                                            <option value="Pharmacy Clerk" <?= $userRoleSel == 'Pharmacy Clerk' ? 'selected' : '' ?>>Pharmacy Clerk</option>
-                                            <option value="Claims Clerk" <?= $userRoleSel == 'Claims Clerk' ? 'selected' : '' ?>>Claims Clerk</option>
+                                            <option value="Landlord" <?= $userRoleSel == 'Landlord' ? 'selected' : '' ?>>Landlord</option>
                                             <option value="Admin Clerk" <?= $userRoleSel == 'Admin Clerk' ? 'selected' : '' ?>>Admin Clerk</option>
-                                            <option value="Receptionist" <?= $userRoleSel == 'Receptionist' ? 'selected' : '' ?>>Receptionist</option>
+                                            <option value="customer" <?= $userRoleSel == 'customer' ? 'selected' : '' ?>>customer</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class=" row form-row">
                                     <div class="col-lg-6">
                                         <label for="user_id">User ID</label>
-                                        <input type="text" name="<?= esc('user_id') ?>" value="<?= rand(10001, 99099) ?>" class="form-control mb-1" id="user_id" readonly>
+                                        <input type="text" name="<?= esc('user_id') ?>" value="<?= $row->user_id ?>" class="form-control mb-1" id="user_id" readonly>
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="phone">Phone</label>

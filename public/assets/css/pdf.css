@@ -1,0 +1,122 @@
+:root {
+    /* colours */
+    --color-primary:  var(--color-danger); 
+    --color-primary-variant:  #5488ce;
+    --color-danger:  #ff7782;
+    --color-success:  #4bb152;
+    --color-amber:  #ffbb55;
+    --color-white:  #fff;
+    --color-info-dark:  #7d8da1;
+    --color-info-light:  #dce1eb;
+    --color-dark:  #363949;
+    --color-light:  rgba(132,139,200,0.18);
+    --color-dark-variant:  #677483;
+    --color-background:  #f6f6f9;
+    --color-background-success:  #4bb152;
+    --color-background-danger:  #ff7782;
+    --color-background-amber:  #ffbb55;
+    --color-background-primary:  var(--color-primary);
+    --color-background-dark:  #7d8da1;
+  
+  
+    /* cards */
+    --card-border-radius:  2rem;
+    --border-radius-1:  0.4rem;
+    --border-radius-2:  0.8rem;
+    --border-radius-3:  1.2rem;
+    --card-padding:  1.8rem;
+    --padding-1:  1.2rem;
+    --box-shadow:  0 2rem 3rem var(--color-light);
+  
+    /* Scroll */
+    scroll-behavior: smooth;
+  }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.align-right {
+    margin-left: auto;
+}
+
+.header-info {
+    display: inline-block;
+}
+
+.qrcode-sec {
+    float: right;
+}
+
+.landlord-sec {
+    float: right;
+}
+
+._rec_label_title {
+    font-weight: bold;
+}
+
+.watermark {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 120px;
+    font-weight: bold;
+    color: rgb(81, 159, 68, 0.1);
+    transform: rotate(-45deg);
+    transform-origin: center;
+    z-index: -10;
+}
+
+.fix-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+.bg-amber {
+    background-color: var(--color-background-amber);
+    color: var(--color-info-light);
+}
+.fw-bold {
+    font-weight: bold;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Optional: Style the table header */
+.table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+}
+.text-danger {
+    color: var(--color-danger);
+}
+
+/* Optional: Set a maximum width for the table */
+@media screen and (min-width: 768px) {
+    .table-container {
+        max-width: 100%;
+    }
+}

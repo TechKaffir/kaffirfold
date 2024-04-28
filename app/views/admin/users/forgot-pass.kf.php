@@ -34,7 +34,7 @@
             <div class="col-12">
                 <button class="btn btn-<?= THEME_COLOR ?> w-100" type="submit">Reset Password</button>
             </div>
-            <?php show($errors) ?>
+            
             <div class="col-12">
                 <a href="<?= ROOT . '/login' ?>" class="btn btn-danger w-100" type="submit">Cancel</a>
             </div>

@@ -168,7 +168,7 @@
                             <?= Util::displayFlash('not_create_success', 'success') ?>
                             <?= Util::displayFlash('not_update_success', 'success') ?>
                             <?= Util::displayFlash('not_delete_success', 'success') ?>
-                            <div class="row">
+                            <div class="row table-responsive">
                                 <!-- Table with stripped rows -->
                                 <table class="table datatable">
                                     <thead>

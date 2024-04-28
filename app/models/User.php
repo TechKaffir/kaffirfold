@@ -134,6 +134,9 @@ class User
 		$_SESSION['surname'] = $row->surname;
 		$_SESSION['username'] = $row->username;
 		$_SESSION['email'] = $row->email;
+		$_SESSION['id'] = $row->id;
+		$_SESSION['user_id'] = $row->user_id;
+		
 		$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 		$_SESSION['status'] = '';
 	}
