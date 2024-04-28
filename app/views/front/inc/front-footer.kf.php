@@ -49,7 +49,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span><?= APP_NAME ?></span></strong>. All Rights Reserved <br>
+        &copy; Copyright <?= date('Y') ?> <strong><span><?= APP_NAME ?></span></strong>. All Rights Reserved <br>
         Powered by <a class="text-<?= THEME_COLOR ?>" href="https://techsolutions.jongibrandz.co.za/" target="_blank">Jongi Brands Tech Solutions</a> 
       </div>
     </div>

@@ -1,6 +1,6 @@
 <footer id="" class="footer bg-<?= THEME_COLOR ?>" style="margin-top: 4.5rem;">
   <div class="copyright text-light">
-    &copy; Copyright <strong><span><?= APP_NAME ?></span></strong> <br> All Rights Reserved
+    &copy; Copyright <?= date('Y') ?> <strong><span><?= APP_NAME ?></span></strong> <br> All Rights Reserved
   </div>
   <div class="credits">
     <span class="text-light">Powered by</span> <a class="text-warning" href="https://techsolutions.jongibrandz.co.za" target="_blank">Jongi Brands Tech Solutions</a>
