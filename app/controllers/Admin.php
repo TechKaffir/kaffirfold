@@ -28,8 +28,7 @@ class Admin
 		
 		/*** EXPORT THE (OBJECTS) VARIABLES ***/
 		$data['customers'] = $customer->findAll();
-		// Complains
-		$data['complaints'] = $customer->customersWIthComplaints();
+		
 		// Payments
 		$data['payments'] = $payment->findAll();
 		$data['sumPayments'] = $payment->sumPayments();

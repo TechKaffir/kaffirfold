@@ -183,28 +183,6 @@ class Customer
 		return $payments;
 	}
 	
-	public function customersWIthComplaints()
-	{
-		$sql = "SELECT
-		c.*,
-		cust.id AS customer_id,
-		usr.firstname AS user_firstname,
-		usr.surname AS user_surname,
-		usr.phone AS user_phone,
-		usr.email AS user_email,
-		usr.user_id,
-		usr.image
-		FROM complaints c
-		LEFT JOIN customers cust ON c.customer = cust.user_id
-		LEFT JOIN users usr ON cust.user_id = usr.user_id
-		";
-		$stmt = $this->connect()->prepare($sql);
-		$stmt->execute();
-
-		$customer = $stmt->fetchAll(PDO::FETCH_OBJ);
-		return $customer;
-	}
-	
 }
 	
 
