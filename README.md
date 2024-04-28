@@ -20,23 +20,27 @@ This lightweight, easy-to-use framework offers a fast and efficient way to devel
 1. **Using Github**: To get started, simply clone the repository and follow the installation instructions. Once installed, you can begin building your application using the framework's features, OR
 
 2. **Using Composer**: Install project using Composer.
+   STEP ONE
     ```bash
     composer create-project jongi/kaffirfold [your-project-name]
     ```
-
+   STEP TWO
    - **Database Setup**: Create a new database.
     ```bash
     php jongi db:create [dbname]
     ```
+    STEP THREE
     - **Configure the database name**: Update the database name in `app/core/config.php` to match the recently created database name.
     ```bash
     /** database config **/
 	define('DBNAME', 'kf_framewrok_db');
     ```
+    STEP FOUR
    - **Configure the URL**: Update the URL and use the name of your project instead of `kaffirfold-framework`, inside `app/core/config.php`. See below: 
     ```bash
     define('ROOT', 'http://localhost/kaffirfold-framework/public');
     ```
+    STEP FIVE
    - **Migrations**: Configure and execute migrations to set up the database tables.
     ```bash
     php jongi migrate:all
