@@ -33,6 +33,16 @@
                                 <?= Util::displayFlash('register_error', 'danger') ?>
                                 <?= Util::displayFlash('email_exists_error', 'danger') ?>
                                 <?= Util::displayFlash('username_exists_error', 'danger') ?>
+                                <!--ROW 0-->
+                                <div class="row form-row">
+                                    <div class="col-lg-12 text-center">
+                                        <label> Profile Image<br>
+                                        <img src="<?= get_image('','user')  ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover;cursor:pointer">
+                                        <input onchange="display_image(this.files[0], event)" type="file" name="<?= esc('image') ?>" class="d-none"> 
+                                        </label> 
+                                    </div>
+                                </div>
+                                <hr>
                                 <!--ROW 1-->
                                 <div class="row form-row">
                                     <div class="col-lg-4">
