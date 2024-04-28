@@ -19,7 +19,7 @@ This lightweight, easy-to-use framework offers a fast and efficient way to devel
 
 1. **Using Github**: To get started, simply clone the repository and follow the installation instructions. Once installed, you can begin building your application using the framework's features, OR
 
-2. **Using Composer**: Install project using Composer.
+2. **Using Composer**: Install project using Composer. <br>
    STEP ONE
     ```bash
     composer create-project jongi/kaffirfold [your-project-name]
