@@ -6,7 +6,7 @@ defined('ROOTPATH') OR exit('Access Denied!');
 if(empty($_SERVER['SERVER_NAME']) && php_sapi_name() == 'cli' || (!empty($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] == 'localhost'))
 {
 	/** database config **/
-	define('DBNAME', 'kf_refined');
+	define('DBNAME', '');
 	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
 	define('DBPASS', '');
@@ -62,7 +62,7 @@ define('PORT','');
 define('MAIN_MODULE','Customers');
 define('MAIN_MOD_SINGULAR','Customer');
 define('HERO_CTA','Contact Us');
-define('HERO_CTA_LINK',ROOT . '/home/contact'); // redirect to the relevant page , eg 'home/blog'
+define('HERO_CTA_LINK',ROOT . '/home/contact'); // redirect to the relevant page , eg 'home/contact'
 define('HERO_SEC_IMG','kf-tech-1.jpg');
 define('GALLERY_IMG_1','kf-tech-2.jpg');
 define('GALLERY_IMG_2','kf-tech-3.jpg');
