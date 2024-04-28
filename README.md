@@ -28,7 +28,11 @@ This lightweight, easy-to-use framework offers a fast and efficient way to devel
     ```bash
     php jongi db:create [dbname]
     ```
-    - **Configure the database name**: Update the database name in `app/core/config.php` with the recently created database.
+    - **Configure the database name**: Update the database name in `app/core/config.php` to match the recently created database name.
+    ```bash
+    /** database config **/
+	define('DBNAME', 'kf_framewrok_db');
+    ```
    - **Configure the URL**: Update the URL and use the name of your project instead of `kaffirfold-framework`, inside `app/core/config.php`. See below: 
     ```bash
     define('ROOT', 'http://localhost/kaffirfold-framework/public');
