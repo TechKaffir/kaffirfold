@@ -21,7 +21,7 @@ This lightweight, easy-to-use framework offers a fast and efficient way to devel
 
 2. **Using Composer**: Install project using Composer.
     ```bash
-    composer create-project jongi/kaffirfold [your-project-name] --stability=dev
+    composer create-project jongi/kaffirfold [your-project-name]
     ```
 
    - **Database Setup**: Create a new database.
