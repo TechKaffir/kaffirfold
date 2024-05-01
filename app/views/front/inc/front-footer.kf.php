@@ -62,6 +62,7 @@
   <script src="<?= ROOT ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?= ROOT ?>/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="<?= ROOT ?>/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?= ROOT ?>/assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="<?= ROOT ?>/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="<?= ROOT ?>/assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="<?= ROOT ?>/assets/vendor/php-email-form/validate.js"></script>
