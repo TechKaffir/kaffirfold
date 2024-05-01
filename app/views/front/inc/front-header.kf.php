@@ -26,6 +26,7 @@
   <link href="<?= ROOT ?>/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="<?= ROOT ?>/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?= ROOT ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?= ROOT ?>/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="<?= ROOT ?>/assets/css/front-style.css" rel="stylesheet">
