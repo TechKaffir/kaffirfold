@@ -42,7 +42,7 @@ class User
 		];
 
 		// Image validation - Check inside the file 
-        if (isset($files_data['image']['type']) && !in_array($files_data['image']['type'], $allowed_types)) {
+        if (!isset($files_data['image']['type']) && !in_array($files_data['image']['type'], $allowed_types)) {
 			$this->errors['image'] = 'Invalid Image File Type. Only types: ' . implode(', ', $allowed_types) . ' allowed!';
 		}
 
