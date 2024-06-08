@@ -7,7 +7,7 @@ if(empty($_SERVER['SERVER_NAME']) && php_sapi_name() == 'cli' || (!empty($_SERVE
 {
 	/** database config **/
 	define('DBNAME', '');
-	define('DBHOST', 'localhost');
+	define('DBHOST', 'localhost'); 
 	define('DBUSER', 'root');
 	define('DBPASS', '');
 	define('DBDRIVER', 'sql');
