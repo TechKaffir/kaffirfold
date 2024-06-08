@@ -122,10 +122,14 @@
                             <form method="POST" action="">
                                <!--CSRF TOKEN-->
                                <input type="hidden" name="<?= esc('csrf_token') ?>" value="<?= $_SESSION['csrf_token'] ?>">
+                                <!--RECORD(S) DELETED-->
+                                <input type="hidden" name="<?= esc('record_deleted') ?>" value="Notification = <?= $row->noti_id . ', Message =  ' . $row->message ?>">
                                 <!--USER DELETING RECORD-->
                                 <input type="hidden" name="<?= esc('deleted_by') ?>" value="<?= user('firstname') . ' ' . user('surname') ?>">
                                 <!--DATE RECORD DELETED-->
                                 <input type="hidden" name="<?= esc('date_deleted') ?>" value="<?= date('Y-m-d H:i:s') ?>">
+                                <!--TABLE-->
+                                <input type="hidden" name="<?= esc('from_table') ?>" value="<?= $page_title ?>">
                                 <input type="hidden" name="<?= esc('user_id') ?>" value="<?= user('id') ?>">
                                 <?php if (!empty($errors)) : ?>
                                     <div class="alert alert-danger text-center col-lg-12">

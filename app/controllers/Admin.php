@@ -48,6 +48,7 @@ class Admin
 	{
 		$user = new User();
 		$notification = new Notification;
+		$delItem = new DeletedItem;
 
 
 		// Create Users' Profile Folder
@@ -149,6 +150,7 @@ class Admin
 					die('Invalid CSRF Token!');
 				} else {
 					$user->delete($id);
+					$delItem->insert($_POST);
 
 					// Delete the image
 					if (file_exists($data['row']->image))
@@ -171,6 +173,7 @@ class Admin
 		$notification = new Notification;
 		$customer = new Customer;
 		$payment = new Payment;
+		$delItem = new DeletedItem;
 
 		// Create Users' Profile Folder 
 		$folder = 'uploads/users/';
@@ -265,9 +268,7 @@ class Admin
 			}
 		} else 
 		if ($action == 'view') {
-
-			
-			
+	
 		} else 
 		if ($action == 'delete') {
 			// Extract ID from URL
@@ -286,6 +287,7 @@ class Admin
 				} else {
 					$user->delete($id, 'user_id');
 					$customer->delete($id, 'user_id');
+					$delItem->insert($_POST);
 
 					Util::setFlash('cust_delete_success', 'Customer deleted successfully!!');
 					redirect('admin/customers');
@@ -423,6 +425,7 @@ class Admin
 	{
 		$user = new User();
 		$gallery = new Gallery();
+		$delItem = new DeletedItem;
 		// Notifications
 		$notification = new Notification;
 		$data['notifications'] = $notification->notifications();
@@ -496,6 +499,7 @@ class Admin
 					die('Invalid CSRF Token!');
 				} else {
 					$gallery->delete($id);
+					$delItem->insert($_POST);
 
 					if (file_exists($data['row']->image))
 						unlink($data['row']->image);
@@ -516,6 +520,7 @@ class Admin
 		$user = new User();
 		$blog = new blog();
 		$category = new Category();
+		$delItem = new DeletedItem;
 
 		// Notifications
 		$notification = new Notification;
@@ -587,6 +592,7 @@ class Admin
 					die('Invalid CSRF Token!');
 				} else {
 					$blog->delete($id, 'post_id');
+					$delItem->insert($_POST);
 
 					if (file_exists($data['row']->image))
 						unlink($data['row']->image);
@@ -606,6 +612,7 @@ class Admin
 	{
 		$user = new User();
 		$category = new Category();
+		$delItem = new DeletedItem;
 
 		// Notifications
 		$notification = new Notification;
@@ -661,6 +668,7 @@ class Admin
 					die('Invalid CSRF Token!');
 				} else {
 					$category->delete($id);
+					$delItem->insert($_POST);
 					Util::setFlash('cat_deleted_success', 'Category deleted successfully!!');
 					redirect('admin/categories');
 				}
@@ -678,6 +686,7 @@ class Admin
 		// Notification Object
 		$notification = new Notification();
 		$user = new User();
+		$delItem = new DeletedItem;
 
 		// Check if current user is looged in 
 		if (!$user->logged_in())
@@ -732,6 +741,7 @@ class Admin
 					die('Invalid CSRF Token!');
 				} else {
 					$notification->delete($id, 'notification_id');
+					$delItem->insert($_POST);
 					Util::setFlash('not_delete_success', 'Notification deleted successfully!!');
 					redirect('admin/notifications');
 				}
@@ -747,6 +757,7 @@ class Admin
 		$user = new User();
 		$document = new DocumentUpload();
 		$customer = new Customer();
+		$delItem = new DeletedItem;
 
 		// Notifications
 		$notification = new Notification;
@@ -817,6 +828,7 @@ class Admin
 					die('Invalid CSRF Token!');
 				} else {
 					$document->delete($id, 'doc_Id');
+					$delItem->insert($_POST);
 
 					if (file_exists($data['row']->document))
 						unlink($data['row']->document);
@@ -836,6 +848,7 @@ class Admin
 		$user = new User();
 		$payment = new Payment();
 		$customer = new Customer();
+		$delItem = new DeletedItem;
 
 		// Notifications
 		$notification = new Notification;
@@ -902,6 +915,7 @@ class Admin
 					die('Invalid CSRF Token!');
 				} else {
 					$payment->delete($id, 'id');
+					$delItem->insert($_POST);
 
 					if (file_exists($data['row']->pop))
 						unlink($data['row']->pop);
@@ -937,7 +951,7 @@ class Admin
 			redirect('login');
 
 		$data['action'] = $action;
-		// Get the single customer's combined details except for payments,contracts,docs,complaints
+		// Get the single customer's combined details except for payments,contracts,docs
 		$data['singleCustomerInfo'] = $customer->singleCustomerAllModules(user('user_id'));
 
 		// Get the single customer's payments list

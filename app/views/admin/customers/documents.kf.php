@@ -132,10 +132,14 @@
                             </div>
                             <form method="POST" action="" enctype="multipart/form-data">
                                 <input type="hidden" name="<?= esc('csrf_token') ?>" value="<?= $_SESSION['csrf_token'] ?>">
+                                <!--RECORD(S) DELETED-->
+                                <input type="hidden" name="<?= esc('record_deleted') ?>" value="Customer ID = <?= $row->customer . ', Document =  ' . $row->document ?>">
                                 <!--USER DELETING RECORD-->
-                                <input type="hidden" name="<?= esc('created_by') ?>" value="<?= user('firstname') . ' ' . user('surname') ?>">
-                                <!--DATE DELETED-->
+                                <input type="hidden" name="<?= esc('deleted_by') ?>" value="<?= user('firstname') . ' ' . user('surname') ?>">
+                                <!--DATE RECORD DELETED-->
                                 <input type="hidden" name="<?= esc('date_deleted') ?>" value="<?= date('Y-m-d H:i:s') ?>">
+                                <!--TABLE-->
+                                <input type="hidden" name="<?= esc('from_table') ?>" value="<?= $page_title ?>">
 
                                 <?php if (!empty($errors)) : ?>
                                     <div class="alert alert-danger text-center col-lg-12">

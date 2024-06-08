@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <!--REPORTS/COMPLAINTS-->
+        <!--PAYMENTS-->
         <div class="row">
             <div class="col-lg-12">
                 <div class="card shadow">

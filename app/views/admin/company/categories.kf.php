@@ -84,10 +84,14 @@
                             <form method="post">
                                 <!--CSRF TOKEN-->
                                 <input type="hidden" name="<?= esc('csrf_token') ?>" value="<?= $_SESSION['csrf_token'] ?>">
+                                <!--RECORD(S) DELETED-->
+                                <input type="hidden" name="<?= esc('record_deleted') ?>" value="Category = <?= $row->cat_name ?>">
                                 <!--USER DELETING RECORD-->
                                 <input type="hidden" name="<?= esc('deleted_by') ?>" value="<?= user('firstname') . ' ' . user('surname') ?>">
                                 <!--DATE RECORD DELETED-->
                                 <input type="hidden" name="<?= esc('date_deleted') ?>" value="<?= date('Y-m-d H:i:s') ?>">
+                                <!--TABLE-->
+                                <input type="hidden" name="<?= esc('from_table') ?>" value="<?= $page_title ?>">
                                 <div class="row form-row">
                                     <div class="col-lg-12">
                                         <label for="cat_name"></label>

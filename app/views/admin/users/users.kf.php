@@ -207,7 +207,16 @@
                                 <h3 class="text-center">DELETE USER</h3>
                             </div>
                             <form method="post">
+                                <!--CSRF TOKEN-->
                                 <input type="hidden" name="<?= esc('csrf_token') ?>" value="<?= $_SESSION['csrf_token'] ?>">
+                                <!--RECORD(S) DELETED-->
+                                <input type="hidden" name="<?= esc('record_deleted') ?>" value="User = <?= $row->firstname . ' ' . $row->surname ?>">
+                                <!--USER DELETING RECORD-->
+                                <input type="hidden" name="<?= esc('deleted_by') ?>" value="<?= user('firstname') . ' ' . user('surname') ?>">
+                                <!--DATE RECORD DELETED-->
+                                <input type="hidden" name="<?= esc('date_deleted') ?>" value="<?= date('Y-m-d H:i:s') ?>">
+                                <!--TABLE-->
+                                <input type="hidden" name="<?= esc('from_table') ?>" value="<?= $page_title ?>">
                                 <!--User Profile Image-->
                                 <div class="row form-row">
                                     <div class="col-lg-12 text-center">
