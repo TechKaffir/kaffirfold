@@ -38,7 +38,7 @@
                                     <div class="col-lg-12 text-center">
                                         <label> Profile Image<br>
                                         <img src="<?= get_image('','user')  ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover;cursor:pointer">
-                                        <input onchange="display_image(this.files[0], event)" type="file" name="<?= esc('image') ?>" class="d-none"> 
+                                        <input onchange="display_image(this.files[0], event)" type="file" value="<?= old_value('image') ?>" name="<?= esc('image') ?>" class="d-none"> 
                                         </label> 
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                                     <div class="col-lg-12 text-center">
                                         <label for="image"> Profile Image</label> <br>
                                         <img src="<?= old_value(get_image($row->image), get_image($row->image, 'user'))  ?>" class="rounded-circle" width="80px" height="80px" style=" object-fit:cover;cursor:pointer">
-                                        <input onchange="display_image(this.files[0], event)" type="file" name="<?= esc('image') ?>" class="d-none"> 
+                                        <input onchange="display_image(this.files[0], event)" type="file" value="<?= old_value('image', $row->image) ?>" name="<?= esc('image') ?>" class="d-none"> 
                                         
                                         <br> <span style="font-size: 0.6rem;" class="text-danger fw-bold">***You will still need to upload an image even if its the same***</span>
                                     </div>
