@@ -510,7 +510,7 @@ class Admin
 			}
 		}
 		$data['errors'] = $gallery->errors;
-		$data['page_title'] = APP_NAME . ' Image Gallery';
+		$data['page_title'] = 'Gallery';
 
 
 		$this->view('admin/company/gallery', $data);
@@ -603,7 +603,7 @@ class Admin
 			}
 		}
 		$data['errors'] = $blog->errors;
-		$data['page_title'] = APP_NAME . ' Blog Spot';
+		$data['page_title'] = 'Blog';
 
 
 		$this->view('admin/company/blog', $data);
@@ -675,7 +675,7 @@ class Admin
 			}
 		}
 		$data['errors'] = $category->errors;
-		$data['page_title'] = APP_NAME . ' Blog Post Categories';
+		$data['page_title'] = 'Categories';
 
 
 		$this->view('admin/company/categories', $data);
@@ -748,7 +748,7 @@ class Admin
 			}
 		}
 		$data['errors'] = $notification->errors;
-		$data['page_title'] = APP_NAME . ' Notifications';
+		$data['page_title'] = 'Notifications';
 
 		$this->view('admin/company/notifications', $data);
 	}
@@ -838,7 +838,7 @@ class Admin
 			}
 		}
 		$data['errors'] = $document->errors;
-		$data['page_title'] = 'Uploaded Documents';
+		$data['page_title'] = 'Documents';
 
 
 		$this->view('admin/customers/documents', $data);
@@ -962,7 +962,7 @@ class Admin
 		$data['stdoc'] = $document->customerDocs(user('user_id'));
 		
 		$data['errors'] = $customer->errors;
-		$data['page_title'] = 'Customer Full Profile';
+		$data['page_title'] = 'Details';
 
 		$this->view('admin/customers/details', $data);
 	}
