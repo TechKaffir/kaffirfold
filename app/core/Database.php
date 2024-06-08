@@ -9,16 +9,24 @@ Trait Database
 {
 	private function connect()
 	{
-		// Set String/DSN
-		$string = "mysql:hostname=".DBHOST.";dbname=".DBNAME;
+		try {
+			// Set String/DSN
+			$string = "mysql:hostname=".DBHOST.";dbname=".DBNAME;
 
-		// Create PDO Instance/Object
-		$con = new PDO($string,DBUSER,DBPASS);
+			// Create PDO Instance/Object
+			$con = new PDO($string,DBUSER,DBPASS);
+
+			return $con;
+
+			// Set the default fetch mode to FETCH_OBJ
+			$con->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+			// Other PDO options can be set here as well, if needed
+			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		} catch (PDOException $e) {
+			// Handle any errors
+			echo 'Connection failed: ' . $e->getMessage();
+		}
 		
-		return $con;
-
-		### You may set PDO Object Attributes as you wish ###
-		// e.g for fetch mode (fetch_assoc, fetch_obj,etc...)
 	}
 
 	public function query($query, $data = [])
