@@ -42,14 +42,8 @@ class User
 		];
 
 		// Image validation - Check inside the file 
-		if (empty($files_data['image']['name'])) {
-			$this->errors['image'] = 'An image is required!';
-		} else 
-        if (!isset($files_data['image']['type']) || !in_array($files_data['image']['type'], $allowed_types)) {
+        if (isset($files_data['image']['type']) && !in_array($files_data['image']['type'], $allowed_types)) {
 			$this->errors['image'] = 'Invalid Image File Type. Only types: ' . implode(', ', $allowed_types) . ' allowed!';
-		} else 
-		if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-			$this->errors['image'] = 'File upload error: ' . $_FILES['image']['error'];
 		}
 
 		// Other inputs validation
